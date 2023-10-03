@@ -1,0 +1,12 @@
+.divCards{
+    display: flex; /* Utiliza flexbox para alinear las tarjetas horizontalmente */
+    flex-wrap: wrap;
+    justify-content:space-around; /* Distribuye el espacio entre las tarjetas */
+    padding: 4px;
+}
+
+/* ESTOS SON IMPORTANTES PARA APRENDER Y QUE SIGNIFICA CADA UNO!! */
+
+/* aline-itens: hace lo mismo que justify ero en sentido vertical;
+gap: es el espaciado primer numero en vertical, segundo en horizontal. */
+

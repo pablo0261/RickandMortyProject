@@ -1,0 +1,9 @@
+
+.divFavoritesList{
+    flex-wrap: wrap;
+    top: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
