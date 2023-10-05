@@ -34,31 +34,35 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER:
-      let copy3 = state.allCharacters.filter((char)=>{
-        return char.gender === payload
-      })
+      let copy3;
+      if (payload === "Todos") {
+        copy3 = state.allCharacters;
+      } else {
+        copy3 = state.allCharacters.filter((char) => {
+          return char.gender === payload;
+        });
+      }
       return {
         ...state,
-        myFavorites:copy3
+        myFavorites: copy3,
       };
 
     case ORDER:
-      let copy4 = state.allCharacters
-      let order = copy4.sort((a,b) => {
-        if (payload === "A"){
-          return a.id - b.id
-        }
-        else if(payload === "D"){
-          return b.id - a.id
+      let copy4 = state.allCharacters;
+      let order = copy4.sort((a, b) => {
+        if (payload === "A") {
+          return a.id - b.id;
+        } else if (payload === "D") {
+          return b.id - a.id;
         } else {
           return 0;
         }
-      })
-        return {
-          ...state,
-          myFavorites: order 
-        }
-      
+      });
+      return {
+        ...state,
+        myFavorites: order,
+      };
+
     default:
       return { ...state };
   }
