@@ -1,4 +1,4 @@
-.divCard {
+    .divCard {
   position: relative;
   justify-items: center;
   padding: 5px;
@@ -100,7 +100,7 @@
   display: block;
   position: relative;
   border-radius: 10px;
-  height: auto;
+  height:auto;
   margin: 5px;
   padding: 5px;
   bottom: -30px;
