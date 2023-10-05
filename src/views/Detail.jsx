@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import styles from "../components/Detail/Detail.module.css";
 
-
 const Detail = () => {
   const { id } = useParams();
 
@@ -24,32 +23,37 @@ const Detail = () => {
   }, [id]);
 
   return (
-    
     <div className={styles.containerDetail}>
-      
-       <div >{character.image && <img className={styles.imageDetail} src={character.image} />}</div>
+      <div>
+        {character.image && (
+          <img className={styles.imageDetail} src={character.image} />
+        )}
+      </div>
       <div className={styles.containernameDetail}>
         <div className={styles.nameDetail}>
-          {character.name ? (
-            <p > {character.name}</p>
-          ) : (
-            <p>Loading...</p>
-          )}
+          {character.name ? <p> {character.name}</p> : <p>Loading...</p>}
         </div>
-
 
         <div className={styles.divDetail}>
           {character.status && (
-            <p className={styles.caracteristicsDetail}>Estado: {character.status}</p>
+            <p className={styles.caracteristicsDetail}>
+              Estado: {character.status}
+            </p>
           )}
           {character.species && (
-            <p className={styles.caracteristicsDetail}>Especie: {character.species}</p>
+            <p className={styles.caracteristicsDetail}>
+              Especie: {character.species}
+            </p>
           )}
           {character.gender && (
-            <p className={styles.caracteristicsDetail}>Género: {character.gender}</p>
+            <p className={styles.caracteristicsDetail}>
+              Género: {character.gender}
+            </p>
           )}
           {character.origin && character.origin.name && (
-            <p className={styles.caracteristicsDetail}>Origen: {character.origin.name}</p>
+            <p className={styles.caracteristicsDetail}>
+              Origen: {character.origin.name}
+            </p>
           )}
         </div>
       </div>

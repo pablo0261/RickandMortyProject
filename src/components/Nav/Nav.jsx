@@ -10,7 +10,11 @@ const Nav = (props) => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  
+
+  setTimeout(() => {
+    setMenuOpen(false);
+  }, 4000);
+
   return (
     <div className={styles.divContainer}>
       <div className={styles.divNav}>
@@ -21,21 +25,18 @@ const Nav = (props) => {
             alt="Rick & Morty"
           />
         </h1>
-        <button
+        <menu
           className={`${styles.menuIcon} ${menuOpen ? styles.open : ""}`}
           onClick={toggleMenu}
         >
           ☰
-        </button>
+        </menu>
         <div
-          className={`${styles.buttonContainer} ${
-            menuOpen ? styles.open : ""
-          }`}
+          className={`${styles.buttonContainer} ${menuOpen ? styles.open : ""}`}
         >
           <button className={styles.buttonLink}>
             <NavLink to={"/Home"} className={styles.activeLink}>
               <img className={styles.imgIcon} src="ICONO HOME.png" alt="Home" />
-              {/* <p>Home</p> */}
             </NavLink>
           </button>
 
@@ -50,9 +51,22 @@ const Nav = (props) => {
               About Us
             </NavLink>
           </button>
-        </div > 
+        </div>
         <SearchBar onSearch={onSearch} />
       </div>
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <NavLink to={"/Home"} className={styles.mobileLink}>
+            Home
+          </NavLink>
+          <NavLink to={"/Favorites"} className={styles.mobileLink}>
+            Favorites
+          </NavLink>
+          <NavLink to={"/About"} className={styles.mobileLink}>
+            About Us
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 };

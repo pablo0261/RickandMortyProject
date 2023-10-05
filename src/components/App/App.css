@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url(C:\Users\Desktop\Proyecto_Vite\Rick_and_Morty\satelite-terra-se-aproximando.jpg);
+  background-image: url(satelite-terra-se-aproximando.jpg);
   background-size: cover; /* Para cubrir toda la pantalla */
   background-position: center;
   min-height: 100vh; /* Establece la altura mínima al 100% de la altura de la ventana (viewport height) */

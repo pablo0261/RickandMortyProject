@@ -3,19 +3,30 @@ import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/actions";
-import { connect } from 'react-redux';
-
+import { connect } from "react-redux";
 
 const Card = (props) => {
-  const { id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites, } = props;
-  
+  const {
+    id,
+    name,
+    status,
+    species,
+    gender,
+    origin,
+    image,
+    onClose,
+    addFav,
+    removeFav,
+    myFavorites,
+  } = props;
+
   const [isFav, setIsFav] = useState(false);
-  
+
   const handleFavorite = () => {
     isFav ? removeFav(id) : addFav(props);
     setIsFav(!isFav);
-    //* Este codigo hace lo mismo que el de abajo
 
+    //* Este codigo hace lo mismo que el de abajo
     // if (isFav) {
     //   removeFav(id);
     //   setIsFav(false);
@@ -33,25 +44,32 @@ const Card = (props) => {
       }
     });
   }, [myFavorites]);
-  
-  
+
   return (
     <div className={styles.divCard}>
       {isFav ? (
         <button className={styles.favoriteButton} onClick={handleFavorite}>
-          <img className={styles.estrellaFav} src='estrella_amarilla.png' alt='Favoritos'/>
+          <img
+            className={styles.estrellaFav}
+            src="estrella_amarilla.png"
+            alt="Favoritos"
+          />
         </button>
       ) : (
         <button className={styles.favoriteButton} onClick={handleFavorite}>
-           <img className={styles.estrella} src='estrella_transparente.png' alt='No Favoritos'/>
+          <img
+            className={styles.estrella}
+            src="estrella_transparente.png"
+            alt="No Favoritos"
+          />
         </button>
       )}
       <button
-        className={styles.buttonClose}
-        onClick={() => {
-          onClose(id);
-        }}
-        >
+      className={styles.buttonClose}
+      onClick={() => {
+        onClose(id);
+      }}
+      >
         <p className={styles.buttonCloseText}>X</p>
       </button>
       <Link to={`/detail/${id}`}>
@@ -68,11 +86,13 @@ const Card = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {//esto a partir de ahora pasa a ser la props de mi componente
-   return {// ahora en mis props tengo myFavorite:[]
-     myFavorites: state.myFavorites, // 'myFavorite' debe coincidir con el nombre de tu estado en el store
-   };
- };
+const mapStateToProps = (state) => {
+  //esto a partir de ahora pasa a ser la props de mi componente
+  return {
+    // ahora en mis props tengo myFavorite:[]
+    myFavorites: state.myFavorites, // 'myFavorite' debe coincidir con el nombre de tu estado en el store
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return (dispatch) => ({
@@ -81,4 +101,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);//rcordar pasar los dos parametros: mapStateToProps, mapDispatchToProps, si aguno de ellos no se usa colocar null.
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

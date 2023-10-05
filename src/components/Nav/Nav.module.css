@@ -2,7 +2,7 @@
   display: flex;
   color: rgb(82, 141, 92);
   position: relative;
-  justify-content:flex-end;
+  justify-content: flex-end;
   margin-left: 20px;
   width: 100%;
 }
@@ -20,7 +20,6 @@
   left: 0;
   display: flex;
   justify-content: center;
-
 }
 
 .imgRick {
@@ -36,7 +35,8 @@
 }
 
 @keyframes rotarYVibrar {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(-15deg);
   }
   50% {
@@ -45,10 +45,10 @@
 }
 
 .buttonLink {
-  text-decoration: none;
   position: relative;
+  height: 40px;
   right: 20px;
-  top: 20px;
+  top: 25px;
   text-align: center;
   text-decoration: none;
   padding: 5px 25px;
@@ -76,8 +76,9 @@
 }
 
 .imgIcon {
-  width: 20px;
+  width: 15px;
   height: auto;
+  color: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .activeLink {
@@ -86,52 +87,96 @@
   color: inherit;
 }
 
-
 .menuIcon {
   position: relative;
-  left: -60px;
-  width: 40px;
-  height: 40px;
-  top: 45px;
-  display: none; /* Inicialmente ocultar las tres líneas de menú */
-  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  display: none;
+  font-size: 30px;
   cursor: pointer;
-  background-color: rgb(77, 167, 65);
+  background-color: transparent;
   border-radius: 10px;
   transform: translateY(1px);
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
-  border-color: rgb(77, 167, 65);
+  border: none;
+  color: rgb(103, 207, 90);
 }
 
-/* Mostrar el menú hamburguesa cuando el tamaño de la pantalla es menor a 1090px */
+.menuIcon:hover {
+  background-color: rgba(103, 207, 90, 0.2);
+  border-radius: 10px;
+}
+
+.menuIcon.active {
+  background-color: transparent;
+}
+
 @media screen and (max-width: 1090px) {
   .buttonLink {
-    display: none; /* Ocultar los botones */
+    display: none;
   }
 
   .menuIcon {
     position: absolute;
-    justify-content:flex;
-    display: flex; /* Mostrar las tres líneas de menú desplegable */
-    left: 0px;
+    justify-content: flex;
+    display: flex;
+    left: -20px;
   }
   .imgRick {
-    left: 150px; /* Ocultar la imagen de Rick */
+    left: 150px;
   }
 }
 
-/* Otros estilos específicos para tamaños de pantalla menores a 900px */
 @media screen and (max-width: 900px) {
   .imgRick {
-    display: none; /* Ocultar la imagen de Rick */
+    display: none;
   }
-  
 }
 @media screen and (max-width: 400px) {
   .menuIcon {
     position: relative;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    top:120px;
+    left: -10;
   }
+}
+
+.mobileMenu {
+  position: absolute;
+  text-decoration: none;
+  top: 85px;
+  left: 5px;
+  margin: 4px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; 
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.mobileLink {
+  text-decoration: none;
+  padding: 5px 25px;
+  margin: 20px;
+  background-color: rgb(103, 207, 90);
+  color: #050000;
+  border: outset;
+  border-color: rgb(103, 207, 90);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.mobileLink:hover {
+  background-color: rgb(77, 167, 65);
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: groove;
+  border-color: rgb(77, 167, 65);
 }

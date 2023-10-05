@@ -1,51 +1,48 @@
-.divAbout{
-    display:block;
-    color: rgb(112, 207, 101); ;
+.divAbout {
+    display: block;
+    color: rgb(112, 207, 101);
     border-radius: 40px;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center;
+    align-items: center;
     margin: 50px auto;
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px; 
+    padding: 20px;
     width: 60%;
     text-align: center;
-}
-
-.h1About{
+  }
+  
+  .h1About, .textAbout {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.textAbout{
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.contactAbout{
-    text-decoration: none ; /*esto quita los estilos de link por defecto*/
-    color: inherit ; /*esto quita los estilos de link por defecto*/
-    position:relative;
+  }
+  
+  .contactAbout {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
     right: 20px;
     top: 20px;
     text-align: center;
-    text-decoration: none;
     padding: 5px 25px;
     margin: 20px;
-    background-color: rgb(103, 207, 90); 
-    color: #050000; 
-    border:outset;
+    background-color: rgb(103, 207, 90);
+    color: #050000;
+    border: outset;
     border-color: rgb(103, 207, 90);
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-    .contactAbout:hover {
-        background-color: rgb(77, 167, 65); 
-        transform: translateY(1px); /* Mueve el botón hacia abajo */
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
-        border:groove;
-        border-color: rgb(77, 167, 65);
-    }
-    
-    .contactAbout:active {
-        transform: scale(0.95); /* Mueve el botón hacia abajo cuando se presiona */
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra más suave al presionar */
-    }
+  }
+  
+  .contactAbout:hover {
+    background-color: rgb(77, 167, 65);
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border: groove;
+    border-color: rgb(77, 167, 65);
+  }
+  
+  .contactAbout:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
