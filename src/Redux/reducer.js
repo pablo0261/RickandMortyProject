@@ -3,7 +3,7 @@ import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actions";
 const initialState = {
   myFavorites: [],
   allCharacters: [],
-}; // aqui dentro podria tener varios estados
+}; 
 
 const rootReducer = (state = initialState, { type, payload }) => {
   //en lugar de action hago destructoring e pongo los parametros que me interesan type y payload
@@ -12,11 +12,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
     type // ojo si no hago destructoring arriba aqui va =action.type
   ) {
     case ADD_FAV:
-      // const idToAdd = Number(payload);
-      // return {
-      //   ...state,
-      //   allCharacters: [...state.allCharacters, payload],
-      //es lo mismo que hacer esto?
       let copy1 = state.allCharacters;
       copy1.push(payload);
       return {
