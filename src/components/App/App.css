@@ -1,8 +1,9 @@
 .App {
   text-align: center;
   background-image: url(satelite-terra-se-aproximando.jpg);
-  background-size: cover; /* Para cubrir toda la pantalla */
+  background-size: cover; 
   background-position: center;
-  min-height: 100vh; /* Establece la altura mínima al 100% de la altura de la ventana (viewport height) */
+  min-height: 100vh; 
   overflow: hidden;
+  overflow-y: auto;
 }
