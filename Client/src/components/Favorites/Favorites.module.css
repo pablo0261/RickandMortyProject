@@ -1,0 +1,78 @@
+.divFavoritesList {
+  position: absolute;
+  margin: 10px;
+  display: block;
+  top: 90px;
+  height: 100%;
+}
+
+.selectContainer {
+  margin: 10px;
+  display: flex;
+}
+
+.selectContainer select {
+  background-color: rgb(103, 207, 90);
+  color: #050000;
+  border: outset;
+  border-color: rgb(77, 167, 65);
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  z-index: 3;
+}
+
+.selectContainer select:hover {
+  background-color: rgb(77, 167, 65);
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: groove;
+  border-color: rgb(77, 167, 65);
+}
+.selectContainer select option {
+  background-color: rgb(103, 207, 90);
+  color: #050000;
+  border: none;
+  border-radius: 0;
+  padding: 5px 15px;
+}
+
+.selectContainer select option:hover {
+  background-color: rgb(77, 167, 65);
+  color: white;
+}
+
+.divFavoritesCars {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 100%;
+  left:20px;
+  justify-content: space-around;
+  top: -40px;
+  transform: scale(90%);
+}
+
+.divFavoritesList {
+  position: relative;
+  display: flex;
+  height: 60px;
+}
+
+@media screen and (max-width: 500px) {
+  .divFavoritesList {
+    position: relative;
+    display: block;
+    height: 60px;
+  }
+  .selectContainer {
+    margin: 10px;
+    display: flex;
+  }
+  .divFavoritesCars {
+    top: -20px;
+  }
+}
+

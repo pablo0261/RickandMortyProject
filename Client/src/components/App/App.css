@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  background-image: url(satelite-terra-se-aproximando.jpg);
+  background-size: cover; 
+  background-position: center;
+  min-height: 100vh; 
+  overflow: hidden;
+  overflow-y: auto;
+}
