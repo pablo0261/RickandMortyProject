@@ -6,27 +6,40 @@ const SearchBar = (props) => {
   const { onSearch } = props;
 
   const [id, setId] = useState("");
+  const [idHistory, setIdHistory] = useState([]); 
 
   const handleChange = (event) => {
-    setId(event.target.value);
+    const value = event.target.value;
+    if (!idHistory.includes(value)) {
+      setId(value);
+    }
   };
 
   const handleSubmit = () => {
     onSearch(id);
+    setIdHistory([...idHistory, id]);
     setId("");
   };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
 
   return (
     <div className={styles.SearchContainer}>
       <input
         className={styles.inputSearch}
         type="search"
-        placeholder="Escribe un ID "
+        placeholder="Enter an ID "
         onChange={handleChange}
+        onKeyUp={handleKeyPress}
         value={id}
       />
       <button className={styles.buttonSearch} onClick={handleSubmit}>
-        Agregar
+        Add
       </button>
     </div>
   );

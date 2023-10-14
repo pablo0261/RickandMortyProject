@@ -23,13 +23,13 @@ const Favorites = (props) => {
     <div className={styles.divFavoritesList}>
       <div className={styles.selectContainer}>
         <select id="orderSelector" onChange={handleOrder}>
-          <option value="A">Ascendente</option>
-          <option value="D">Descendente</option>
+          <option value="A">Ascending</option>
+          <option value="D">Descending</option>
         </select>
       </div>
       <div className={styles.selectContainer}>
         <select id="filterSelector" onChange={handleFilter}>
-          <option value="Todos">Todos</option> //!Agregarle funcionalidad
+          <option value="All">All</option> 
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Genderless">Genderless</option>

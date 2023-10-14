@@ -52,7 +52,7 @@
   left:20px;
   justify-content: space-around;
   top: -40px;
-  transform: scale(80%);
+  transform: scale(90%);
 }
 
 .divFavoritesList {
@@ -71,4 +71,8 @@
     margin: 10px;
     display: flex;
   }
+  .divFavoritesCars {
+    top: -20px;
+  }
 }
+
