@@ -1,13 +1,19 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+// import { useHistory } from "react-router-dom";
 import styles from "../components/Detail/Detail.module.css";
 
 const Detail = () => {
   const { id } = useParams();
 
   const [character, setCharacter] = useState({});
+  // const history = useHistory();
+
+  // const handleGoBack = () => {
+  //   history.goBack();
+  // };
 
   useEffect(() => {
     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
@@ -57,6 +63,11 @@ const Detail = () => {
           )}
         </div>
       </div>
+      {/* <div>
+        <button className={styles.buttonReturn} onClick={handleGoBack}>
+          <img className={styles.imgReturn} src="ButtonReturn.png" alt="GoBack" />
+        </button>
+      </div> */}
     </div>
   );
 };
