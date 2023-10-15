@@ -78,6 +78,7 @@
 .imgIcon {
   width: 15px;
   height: auto;
+  object-fit: cover;
   color: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 

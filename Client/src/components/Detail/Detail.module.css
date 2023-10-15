@@ -1,14 +1,14 @@
 .containerDetail {
+  position: relative;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   top: 110px;
   display: inline-flex;
-  position: relative;
   background-color: rgba(44, 44, 44, 0.151);
   border-radius: 30px;
   height: 550px;
-  width: 900px;
+  width: 950px;
   animation: luz-verde 3s linear infinite;
 }
 
@@ -28,10 +28,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: rgba(84, 255, 98, 0.8);
   padding: 10px;
+  margin: 3%;
   width: 300px;
   height: 400px;
-  top: -10px;
-  right: -20px;
+  top: 0px;
+  right: 0px;
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.411);
   border-radius: 10px;
@@ -46,9 +47,8 @@
 }
 .imageDetail {
   position: relative;
-  transform: 1.5%;
-  align-items: left;
-  height: 400px;
+  align-items: center;
+  height: 100%;
   margin: 10px 20px 30px 30px;
   border: 1px rgba(60, 253, 86, 0.8);
   box-shadow: 0 0 20px rgba(84, 255, 98, 0.8);
@@ -74,6 +74,7 @@
 }
 .caracteristicsDetail:hover {
   animation: rotarYVibrar 0.25s infinite;
+  box-shadow: 0 0 30px rgba(84, 255, 98, 0.8);
 }
 @keyframes rotarYVibrar {
   0%,
@@ -86,16 +87,16 @@
 }
 
 .buttonReturn{
-  position: relative;
+  position: absolute;
   height: 40px;
-  right: 20px;
-  top: 25px;
+  width: 60px;
+  left: 15px;
+  top: 15px;
   text-align: center;
-  text-decoration: none;
-  padding: 5px 25px;
-  margin: 20px;
+  justify-items: center;
+  padding: 5px 15px;
+  margin: 10px;
   background-color: rgb(103, 207, 90);
-  color: #050000;
   border: outset;
   border-color: rgb(103, 207, 90);
   border-radius: 25px;
@@ -116,5 +117,24 @@
 }
 
 .imgReturn{
-  background-color: rgb(77, 167, 65);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1090px) {
+  .containerDetail {
+    height: auto;
+    width: 50vw;
+  }
+  .containernameDetail {
+    width: 80%;
+    height: 30%;
+  }
+  .imageDetail {
+    transform: none;
+    height: auto;
+    width: 80%;
+    margin: 75px 20px 30px 30px;
+  }
 }

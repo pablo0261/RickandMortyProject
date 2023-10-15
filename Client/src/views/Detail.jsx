@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-// import { useHistory } from "react-router-dom";
 import styles from "../components/Detail/Detail.module.css";
 
 const Detail = () => {
   const { id } = useParams();
+  const handleGoBack = () => {
+    window.history.back(); 
+  };
 
   const [character, setCharacter] = useState({});
   // const history = useHistory();
@@ -30,6 +32,9 @@ const Detail = () => {
 
   return (
     <div className={styles.containerDetail}>
+        <button className={styles.buttonReturn} onClick={handleGoBack}>
+          <img className={styles.imgReturn} src='.././goBack.png' alt="GoBack" />
+        </button>
       <div>
         {character.image && (
           <img className={styles.imageDetail} src={character.image} />
@@ -63,11 +68,6 @@ const Detail = () => {
           )}
         </div>
       </div>
-      {/* <div>
-        <button className={styles.buttonReturn} onClick={handleGoBack}>
-          <img className={styles.imgReturn} src="ButtonReturn.png" alt="GoBack" />
-        </button>
-      </div> */}
     </div>
   );
 };
