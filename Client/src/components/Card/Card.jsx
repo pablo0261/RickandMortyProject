@@ -65,12 +65,12 @@ const Card = (props) => {
         </button>
       )}
       <button
-      className={styles.buttonClose}
+      className={`${styles.buttonClose} ${isFav ? styles.transparentButton : ""}`}
       onClick={() => {
         onClose(id);
       }}
       >
-        <p className={styles.buttonCloseText}>X</p>
+        {isFav ? null : <p className={styles.buttonCloseText}>X</p>}
       </button>
       <Link to={`/detail/${id}`}>
         <h2 className={styles.h2Name}>{name}</h2>

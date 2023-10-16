@@ -45,7 +45,7 @@ const Favorites = (props) => {
                 status={char.status}
                 species={char.species}
                 gender={char.gender}
-                origin={char.origin ? char.origin.name : "Origen Desconocido"} // Verificar si char.origin.name existe
+                origin={char.origin } 
                 image={char.image}
                 onClose={() => {}}
               />
