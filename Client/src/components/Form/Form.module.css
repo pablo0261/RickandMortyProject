@@ -79,3 +79,23 @@
   border: groove;
   border-color: rgb(77, 167, 65);
 }
+.togglePasswordButton{
+  position:relative;
+  display:inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(77, 167, 65);
+  border-radius: 15%;
+  height: 28px;
+  width: 30px;
+  top: 15.3px;
+  left : -54px;
+  cursor: pointer;
+}
+
+.vision{
+  position: relative;
+  background-color:#dae90c00;
+  justify-content: center;
+  height: 40px;
+}

@@ -8,14 +8,21 @@ const Form = ({ login }) => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false); //* Nuevo estado para controlar la visibilidad de la contraseña
+
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     let property = event.target.name;
     let value = event.target.value;
-    console.log(property, value);
+    // console.log(property, value);
     setUserData({ ...userData, [property]: value });
     validation({ ...userData, [property]: value }, errors, setErrors);
+  };
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword(!showPassword); //* Cambiar el estado para alternar la visibilidad de la contraseña
   };
 
   const handleSubmit = (event) => {
@@ -44,14 +51,29 @@ const Form = ({ login }) => {
             <label className={styles.label} htmlFor="password">Password: </label>
             <input
               className={styles.input}
-              type="password"
+              type={showPassword ? "text" : "password"} //* Cambia el tipo según el estado showPassword
               name="password"
               value={userData.password}
               onChange={handleChange}
             />
-            {errors.password && (
-              <p className={styles.spanErrors}> {errors.password}</p>
-            )}
+             <button
+              className={styles.togglePasswordButton}
+              onClick={handleTogglePasswordVisibility}
+            >
+              {showPassword ? (
+                <img 
+                  className={styles.vision}
+                  src="novisible.png"
+                  alt="Hide Password"
+                />
+              ) : (
+                <img
+                  className={styles.vision}
+                  src="visible.png"
+                  alt="Show Password"
+                />
+              )}
+              </button>
           </div>
         </div>
         <button className={styles.buttonForm} type="submit">
