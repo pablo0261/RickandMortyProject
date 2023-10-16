@@ -9,8 +9,6 @@ const Form = ({ login }) => {
   });
 
   const [showPassword, setShowPassword] = useState(false); //* Nuevo estado para controlar la visibilidad de la contraseña
-
-
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -20,11 +18,11 @@ const Form = ({ login }) => {
     setUserData({ ...userData, [property]: value });
     validation({ ...userData, [property]: value }, errors, setErrors);
   };
-
+  
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword); //* Cambiar el estado para alternar la visibilidad de la contraseña
   };
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
