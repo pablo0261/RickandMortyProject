@@ -55,6 +55,7 @@ const Form = ({ login }) => {
               onChange={handleChange}
             />
              <button
+              type="button"
               className={styles.togglePasswordButton}
               onClick={handleTogglePasswordVisibility}
             >
