@@ -1,6 +1,6 @@
 const http = require("http");
 const url = require("url");
-const data = require("./utils/data.js");
+const getCharById = require('./controllers/getCharById')
 
 //* EXPLICACION PARSE =>url.parse(urlString, [parseQueryString], [slashesDenoteHost])
 //*  urlString (String): Esta es la URL
@@ -13,21 +13,26 @@ http
   .createServer((req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
-    const URL = url.parse(req.url, true);
+    const {url} = req;
 
-    if (URL.href.includes("/rickandmorty/character")) {
-      const id = URL.pathname.split("/").pop();
-      const characterId = Number(id);
+    if(url.includes(`/rickandmorty/character`)){
+      const id = url.split('/').pop();
+      getCharById(res, id)
+    }
 
-      const character = data.find((character) => character.id === characterId);
+    // if (URL.href.includes("/rickandmorty/character")) {
+    //   const id = URL.pathname.split("/").pop();
+    //   const characterId = Number(id);
 
-      if (character) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.end(JSON.stringify(character));
-      }
+    //   const character = data.find((character) => character.id === characterId);
+
+      // if (character) {
+      //   res.writeHead(200, { "Content-Type": "application/json" });
+      //   return res.end(JSON.stringify(character));
+      // }
     //*   EXPLICACION DE .stringfy()
     //   JSON.stringify() es utilizado para serializar un objeto JavaScript en una cadena JSON para que pueda ser transmitido a través de HTTP
-    }
+    // }
   })
 
   .listen(3001, "localhost");

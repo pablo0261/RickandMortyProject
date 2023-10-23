@@ -6,38 +6,30 @@ import styles from "../components/Detail/Detail.module.css";
 
 const Detail = () => {
   const { id } = useParams();
-  const handleGoBack = () => {
-    window.history.back(); 
-  };
-
   const [character, setCharacter] = useState({});
-  // const history = useHistory();
-
-  // const handleGoBack = () => {
-  //   history.goBack();
-  // };
-
+  
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacter(data);
         } else {
           window.alert("No hay personajes con ese ID");
         }
-      }
-    );
-    return setCharacter({});
+      })
+      .catch((error) => {
+        console.error("Error al obtener detalles del personaje:", error);
+      });
   }, [id]);
 
   return (
     <div className={styles.containerDetail}>
-        <button className={styles.buttonReturn} onClick={handleGoBack}>
+        <button className={styles.buttonReturn} onClick={() => window.history.back()}>
           <img className={styles.imgReturn} src='.././goBack.png' alt="GoBack" />
         </button>
       <div>
         {character.image && (
-          <img className={styles.imageDetail} src={character.image} />
+          <img className={styles.imageDetail} src={character.image} alt="Characters" />
         )}
       </div>
       <div className={styles.containernameDetail}>

@@ -11,14 +11,16 @@ const SearchBar = (props) => {
 
   const handleChange = (event) => {
     const value = event.target.value;
-    if (!idHistory.includes(value)) {
-      setId(value);
-    }
+    setId(value);
   };
 
   const handleSubmit = () => {
-    onSearch(id);
-    setIdHistory([...idHistory, id]);
+    if (!idHistory.includes(id)) {
+      onSearch(id);
+      setIdHistory([...idHistory, id]);
+    } else {
+      window.alert("¡This ID has already been added!");
+    }
     setId("");
   };
 

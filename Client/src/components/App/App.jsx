@@ -1,8 +1,7 @@
-import React from "react";
 import "./App.css";
 import Cards from "../Cards/Cards.jsx";
 import Nav from "../Nav/Nav";
-import { useState, useEffect } from "react";
+import {React,  useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import About from "../../views/About";
@@ -42,7 +41,7 @@ function App() {
       return;
     }
 
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
@@ -77,7 +76,7 @@ function App() {
         <Route path={PATHROUTES.ABOUT} element={<About />} />
         <Route
           path={PATHROUTES.FAVORITES}
-          element={<Favorites favorites={Favorites} />}
+          element={<Favorites characters={characters} />}
         />
         <Route path={PATHROUTES.DETAIL} element={<Detail />} />
       </Routes>

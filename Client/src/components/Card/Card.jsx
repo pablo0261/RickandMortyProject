@@ -3,27 +3,25 @@ import { useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/actions";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const Card = (props) => {
-  const {
-    id,
-    name,
-    status,
-    species,
-    gender,
-    origin,
-    image,
-    onClose,
-    addFav,
-    removeFav,
-    myFavorites,
-  } = props;
+  const { id, name, status, species, gender, origin, image } = props; 
+  const myFavorites = useSelector((state) => state.myFavorites);
+  const dispatch = useDispatch();
+
+  const addFavorites = (character) => {
+    dispatch(addFav(character));
+  };
+
+  const removeFavorites = (id) => {
+    dispatch(removeFav(id));
+  };
 
   const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
-    isFav ? removeFav(id) : addFav(props);
+    isFav ? removeFavorites(id) : addFavorites(props);
     setIsFav(!isFav);
 
     //* Este codigo hace lo mismo que el de abajo
@@ -44,6 +42,7 @@ const Card = (props) => {
       }
     });
   }, [myFavorites]);
+  
 
   return (
     <div className={styles.divCard}>
@@ -86,19 +85,20 @@ const Card = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  //esto a partir de ahora pasa a ser la props de mi componente
-  return {
-    // ahora en mis props tengo myFavorite:[]
-    myFavorites: state.myFavorites, // 'myFavorite' debe coincidir con el nombre de tu estado en el store
-  };
-};
+// const mapStateToProps = (state) => {
+//   //esto a partir de ahora pasa a ser la props de mi componente
+//   return {
+//     // ahora en mis props tengo myFavorite:[]
+//     myFavorites: state.myFavorites, // 'myFavorite' debe coincidir con el nombre de tu estado en el store
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return (dispatch) => ({
-    addFav: (character) => dispatch(addFav(character)),
-    removeFav: (id) => dispatch(removeFav(id)),
-  });
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return (dispatch) => ({
+//     addFav: (character) => dispatch(addFav(character)),
+//     removeFav: (id) => dispatch(removeFav(id)),
+//   });
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+// export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default Card;
