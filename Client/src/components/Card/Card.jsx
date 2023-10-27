@@ -6,7 +6,7 @@ import { addFav, removeFav } from "../../Redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Card = (props) => {
-  const { id, name, status, species, gender, origin, image } = props; 
+  const { id, name, status, species, gender, origin, image, onClose } = props; 
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
@@ -85,20 +85,4 @@ const Card = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//   //esto a partir de ahora pasa a ser la props de mi componente
-//   return {
-//     // ahora en mis props tengo myFavorite:[]
-//     myFavorites: state.myFavorites, // 'myFavorite' debe coincidir con el nombre de tu estado en el store
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return (dispatch) => ({
-//     addFav: (character) => dispatch(addFav(character)),
-//     removeFav: (id) => dispatch(removeFav(id)),
-//   });
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Card);
 export default Card;

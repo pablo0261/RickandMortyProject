@@ -1,4 +1,5 @@
 import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actions";
+import axios from "axios";
 
 const initialState = {
   myFavorites: [],
@@ -12,22 +13,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
     type // ojo si no hago destructoring arriba aqui va =action.type
   ) {
     case ADD_FAV:
-      let copy1 = state.allCharacters;
-      copy1.push(payload);
-      return {
-        ...state,
-        myFavorites: copy1,
-        allCharacters: copy1,
-      };
-    case REMOVE_FAV:
-      let copy2 = state.myFavorites.filter((chad) => {
-        return chad.id !== Number(payload);
-      });
-      return {
-        ...state,
-        myFavorites: copy2,
-      };
+      return { ...state, myFavorites: payload, allCharacters: payload };
 
+    case REMOVE_FAV:
+      return { ...state, myFavorites: payload };
+      
     case FILTER:
       let copy3;
       if (payload === "All") {
@@ -59,7 +49,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     default:
-      return { ...state };
+      return state ;
   }
 };
 

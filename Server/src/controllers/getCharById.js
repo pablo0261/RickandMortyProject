@@ -1,32 +1,36 @@
 const axios = require('axios');
 
-const getCharById = (res, id) =>{
+const URL = `https://rickandmortyapi.com/api/character/`
 
-axios.get(`https://rym2.up.railway.app/api/character/${id}`)
+const getCharById = (req, res) =>{
+    const {id} = req.params;
 
-    //*sin destructoring
-    // .then(({response})=>{
-    //     const data = response.data;
-    //     const character = {
-    //     id: data.id,
-    //     name: data.name,
-    //     gender: data.gender,
-    //     specie: data.specie,
-    //     origin: data.origin.name,
-    //     image: data.image,
-    //     status: data.status
-    // };
-    .then(({data}) => {
-        const {name, gender, specie, origin, image, status} = data;
-        const character = {id, name, gender, specie, origin, image, status}
+axios.get(`${URL}${id}`) // o s epuede poner URL + id
 
-    res.writeHead(200,{'Content-type':'application/json'})
-    return res.end(JSON.stringify(character))
-})
-.catch((err) =>{
-    res.writeHead(500, {'Conten-Type': 'text-plane'})
-    return res.end(err.message)
-})
+    .then((response) => {
+        if(response.status === 200){
+            const data = response.data; //!podria ir esto, verificar si funciona
+        if (data) {
+            const character = {
+            id: data.id,
+            name: data.name,
+            gender: data.gender,
+            species: data.species,
+            origin: data.origin.name,
+            image: data.image,
+            status: data.status,
+        };
+        return res.status(200).json(character);
+    } else {
+        return res.status(404).json({ message: 'Not found' });
+    }
+} else {
+    return res.status(500).json({ message: 'Internal Server Error' });
 }
+})
+.catch((err) => {
+res.status(500).json({ message: err.message });
+});
+};
 
 module.exports = getCharById;

@@ -16,18 +16,16 @@ function App() {
   const navigate = useNavigate();
 
   const [access, setAccess] = useState(false);
-  //!FAKE
-  const email = "";//colocar mail aceptado
-  const password = ""; // colocar clave correcta
 
-  const login = (userData) => {
-    if (userData.email === email && userData.password === password) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("Usuario o contraseña incorrectos");
-    }
-  };
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ }
 
   const onSearch = (id) => {
     // console.log(`Buscando personaje con ID: ${id}`);
@@ -41,7 +39,7 @@ function App() {
       return;
     }
 
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
