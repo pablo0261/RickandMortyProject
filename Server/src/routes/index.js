@@ -7,7 +7,7 @@ const login = require('../controllers/login')
 
 router.get('/character/:id', getCharById);
 router.get('/login', login);
-router.post('/fav', handleFavorites.postFav);
+router.post('/fav', handleFavorites.postFav); //ver si saco el handleFavorites.
 router.delete('/fav/:id', handleFavorites.deleteFav);
 
 module.exports = router;
