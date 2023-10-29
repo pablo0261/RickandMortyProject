@@ -23,8 +23,8 @@ const Favorites = (props) => {
     <div className={styles.divFavoritesList}>
       <div className={styles.selectContainer}>
         <select id="orderSelector" onChange={handleOrder}>
-          <option value="A">Ascending</option>
-          <option value="D">Descending</option>
+          <option value="A">Order A-Z </option>
+          <option value="D">Order Z-A</option>
         </select>
       </div>
       <div className={styles.selectContainer}>

@@ -3,13 +3,17 @@
   width: 100%;
   height: 100%;
   color: rgb(103, 207, 90);
-  background-image: url("R&MInicio.png"); 
+  background-image: url("R&MInicio5.png"); 
   background-size:cover; 
   background-repeat:space; 
   background-position: center; 
 }
 .form{
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   top: 250px;
   width: 100vw;
   color: rgb(103, 207, 90);
@@ -22,8 +26,13 @@
   align-items: center;
   justify-content: center;
   top: -30px;
+  width: 300px;
+  height: 350px;
+  border-radius: 20px;
   font-size: 25px;
   color: rgb(103, 207, 90);
+  background-color: rgba(8, 8, 8, 0.377);
+  backdrop-filter: blur(3px);
 }
 
 .label {
@@ -39,6 +48,9 @@
 }
 
 .input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(11, 26, 9, 0.466);
   margin: 20px;
   width: 200px;
@@ -62,7 +74,6 @@
   position: relative;
   width: 100px;
   height: 40px;
-  top: 20px;
   background-color: rgb(103, 207, 90);
   color: #050000;
   border: outset;
@@ -88,14 +99,21 @@
   border-radius: 15%;
   height: 28px;
   width: 30px;
-  top: 15.3px;
-  left : -54px;
+  top: -52px;
+  left : 85px;
   cursor: pointer;
 }
 
 .vision{
+  display: flex;
   position: relative;
   background-color:#dae90c00;
   justify-content: center;
+  align-items: center;
   height: 40px;
+}
+
+.inputpasword{
+  
+  
 }

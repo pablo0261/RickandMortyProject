@@ -47,6 +47,7 @@ const Form = ({ login }) => {
           </div>
           <div className={styles.inputContainer}>
             <label className={styles.label} htmlFor="password">Password: </label>
+            <div className={styles.inputpasword}>
             <input
               className={styles.input}
               type={showPassword ? "text" : "password"} //* Cambia el tipo según el estado showPassword
@@ -73,11 +74,12 @@ const Form = ({ login }) => {
                 />
               )}
               </button>
+              </div>
           </div>
-        </div>
         <button className={styles.buttonForm} type="submit">
           Login
         </button>
+        </div>
       </form>
     </div>
   );

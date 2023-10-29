@@ -1,36 +1,34 @@
-const axios = require('axios');
+const axios = require("axios");
 
-const URL = `https://rickandmortyapi.com/api/character/`
+const URL = `https://rickandmortyapi.com/api/character/`;
 
-const getCharById = (req, res) =>{
-    const {id} = req.params;
+const getCharById = async (req, res) => {
+  const { id } = req.params;
 
-axios.get(`${URL}${id}`) // o s epuede poner URL + id
-
-    .then((response) => {
-        if(response.status === 200){
-            const data = response.data; //!podria ir esto, verificar si funciona
-        if (data) {
-            const character = {
-            id: data.id,
-            name: data.name,
-            gender: data.gender,
-            species: data.species,
-            origin: data.origin.name,
-            image: data.image,
-            status: data.status,
+  try {
+    const response = await axios.get(`${URL}${id}`);
+    if (response.status === 200) {
+      const data = response.data;
+      if (data) {
+        const character = {
+          id: data.id,
+          name: data.name,
+          gender: data.gender,
+          species: data.species,
+          origin: data.origin.name,
+          image: data.image,
+          status: data.status,
         };
         return res.status(200).json(character);
+      } else {
+        return res.status(404).json({ message: "Not found" });
+      }
     } else {
-        return res.status(404).json({ message: 'Not found' });
+      return res.status(500).json({ message: "Internal Server Error" });
     }
-} else {
-    return res.status(500).json({ message: 'Internal Server Error' });
-}
-})
-.catch((err) => {
-res.status(500).json({ message: err.message });
-});
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
 };
 
 module.exports = getCharById;
