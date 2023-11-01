@@ -8,11 +8,11 @@ import { useDispatch } from "react-redux";
 const Favorites = (props) => {
   const { myFavorites } = props;
   const dispatch = useDispatch();
-  const [aux, setAux] = useState(false);
+  const [aux, setAux] = useState(false); //! ver si tiene funcionalidad o sacarlo
 
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
-    setAux(!aux);
+    setAux(!aux); //! ver si tiene funcionalidad o sacarlo
   };
 
   const handleFilter = (e) => {
@@ -47,7 +47,7 @@ const Favorites = (props) => {
                 gender={char.gender}
                 origin={char.origin } 
                 image={char.image}
-                onClose={() => {}}
+                onClose={() => {}} //! quitar la propiedad si no la voy a utilizar
               />
             );
           })}
@@ -57,7 +57,7 @@ const Favorites = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {//! reemplazar por useSelector
   return {
     myFavorites: state.myFavorites,
   };

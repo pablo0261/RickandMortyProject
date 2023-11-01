@@ -11,7 +11,7 @@ const Nav = (props) => {
     setMenuOpen(!menuOpen);
   };
 
-  setTimeout(() => {
+  setTimeout(() => {//*para exponr el menu temporalmente
     setMenuOpen(false);
   }, 5000);
 

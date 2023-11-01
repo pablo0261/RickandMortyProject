@@ -20,7 +20,9 @@ function App() {
   function login(userData) {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`)
+    
+    axios(URL + `?email=${email}&password=${password}`)//!cambiar esto a POST para no exponer los datos por query al hacer get
+   //* axios.POST(URL, {email, pasword})
     .then(({ data }) => {
       const { access } = data;
       setAccess(data);

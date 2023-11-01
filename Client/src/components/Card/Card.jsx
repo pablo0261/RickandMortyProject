@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Card = (props) => {
   const { id, name, status, species, gender, origin, image, onClose } = props; 
-  const myFavorites = useSelector((state) => state.myFavorites);
+  const myFavorites = useSelector((state) => state.myFavorites);//*El componente esta subscripto al estado global
   const dispatch = useDispatch();
 
   const addFavorites = (character) => {
@@ -35,7 +35,7 @@ const Card = (props) => {
     // }
   };
 
-  useEffect(() => {
+  useEffect(() => {//*Mantiene actualizada la situacion de favorito de las cartas que se muestran en funcion de los cambios en el estado global.
     myFavorites.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);
