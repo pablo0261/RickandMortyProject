@@ -23,6 +23,17 @@ const SearchBar = (props) => {
     }
     setId("");
   };
+  
+  const handleRandom = () => {
+    let randomId;
+    do {
+      randomId = Math.floor(Math.random() * 500) + 1;
+    } while (idHistory.includes(randomId.toString()));
+
+    onSearch(randomId.toString());
+    setIdHistory([...idHistory, randomId.toString()]);
+    setId("");
+  };
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -43,6 +54,9 @@ const SearchBar = (props) => {
       />
       <button className={styles.buttonSearch} onClick={handleSubmit}>
         Add
+      </button>
+      <button className={styles.randomSearch} onClick={handleRandom}>
+      <img src=".././Random.png" alt="Random Icon" style={{  margin: '1px', height: '35px' }}/>
       </button>
     </div>
   );

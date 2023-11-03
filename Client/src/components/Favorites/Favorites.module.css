@@ -75,4 +75,26 @@
     top: -20px;
   }
 }
+.orderToggleContainer {
+  margin: 10px;
+  display: flex;
+}
 
+.orderToggleButton {
+  background-color: rgb(103, 207, 90);
+  color: #050000;
+  border: outset;
+  border-color: rgb(77, 167, 65);
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.orderToggleButton:hover {
+  background-color: rgb(77, 167, 65);
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: groove;
+  border-color: rgb(77, 167, 65);
+}

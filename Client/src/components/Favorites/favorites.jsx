@@ -8,11 +8,11 @@ import { useDispatch } from "react-redux";
 const Favorites = (props) => {
   const { myFavorites } = props;
   const dispatch = useDispatch();
-  const [aux, setAux] = useState(false); //! ver si tiene funcionalidad o sacarlo
+  const [aux, setAux] = useState(true); 
 
-  const handleOrder = (e) => {
-    dispatch(orderCards(e.target.value));
-    setAux(!aux); //! ver si tiene funcionalidad o sacarlo
+  const handleOrder = () => {
+    dispatch(orderCards(aux? "D" : "A"));
+    setAux(!aux); 
   };
 
   const handleFilter = (e) => {
@@ -21,11 +21,10 @@ const Favorites = (props) => {
 
   return (
     <div className={styles.divFavoritesList}>
-      <div className={styles.selectContainer}>
-        <select id="orderSelector" onChange={handleOrder}>
-          <option value="A">Order A-Z </option>
-          <option value="D">Order Z-A</option>
-        </select>
+      <div className={styles.orderToggleContainer}>
+        <button className={styles.orderToggleButton} id="orderSelector" onClick={handleOrder}>
+          {aux ? "A-Z" : "Z-A"}
+        </button>
       </div>
       <div className={styles.selectContainer}>
         <select id="filterSelector" onChange={handleFilter}>
