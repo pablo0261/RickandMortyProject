@@ -34,23 +34,23 @@ const Nav = (props) => {
         <div
           className={`${styles.buttonContainer} ${menuOpen ? styles.open : ""}`}
         >
-          <button className={styles.buttonLink}>
             <NavLink to={"/Home"} className={styles.activeLink}>
+          <button className={styles.buttonLink}>
               <img className={styles.imgIcon} src="ICONO HOME.png" alt="Home" />
-            </NavLink>
           </button>
+            </NavLink>
 
-          <button className={styles.buttonLink}>
             <NavLink to={"/Favorites"} className={styles.activeLink}>
-              Favorites
-            </NavLink>
-          </button>
-
           <button className={styles.buttonLink}>
-            <NavLink to={"/About"} className={styles.activeLink}>
-              About Us
-            </NavLink>
+              Favorites
           </button>
+            </NavLink>
+
+            <NavLink to={"/About"} className={styles.activeLink}>
+          <button className={styles.buttonLink}>
+              About Us
+          </button>
+            </NavLink>
         </div>
         <SearchBar onSearch={onSearch} />
       </div>

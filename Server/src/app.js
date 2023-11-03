@@ -1,7 +1,8 @@
-const axios = require('axios');
 const express = require('express');
 const server = express();
 const router = require('./routes/index');
+//const morgan = require('morgan');
+//  const cors = requiere('cors');
 
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,4 +21,4 @@ server.use((req, res, next) => {
 server.use(express.json());
 server.use('/rickandmorty', router);
 
-export default server;
+module.exports = {server};

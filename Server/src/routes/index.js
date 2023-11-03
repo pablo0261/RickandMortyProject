@@ -1,5 +1,5 @@
 const express  = require('express')
-const router = express.Router();
+const router = express.Router();//ver si aqui no va index.!!
 const getCharById = require('../controllers/getCharById')
 const handleFavorites = require('../controllers/handleFavorites')
 const login = require('../controllers/login')

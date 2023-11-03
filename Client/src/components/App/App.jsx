@@ -19,14 +19,16 @@ function App() {
 
   function login(userData) {
     const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = "http://localhost:3001/rickandmorty/login";
     
-    axios(URL + `?email=${email}&password=${password}`)//!cambiar esto a POST para no exponer los datos por query al hacer get
-   //* axios.POST(URL, {email, pasword})
+    axios
+    .get(`${URL}?email=${email}&password=${password}`) 
     .then(({ data }) => {
-      const { access } = data;
-      setAccess(data);
-      access && navigate("/home");
+      //const { access } = data;
+      setAccess(data); 
+      if (data) {
+        navigate("/home");
+      }
     })
     .catch((error) => {
       window.alert("Invalid Username or Password!"); 

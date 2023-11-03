@@ -1,6 +1,7 @@
-import server from "./app";
+const {server}  = require('./app')
+//import server from "./app";
 const PORT = 3001;
 
   server.listen(PORT, () => {
-    console.log('Server raised in port: ' + PORT);
+    console.log('Server raised in port: ' + PORT);// puede ser tambien ${PORT}
  });

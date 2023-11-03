@@ -9,6 +9,17 @@
     padding: 20px;
     width: 60%;
     text-align: center;
+    animation: luz-verde 3s linear infinite;
+  }
+  @keyframes luz-verde {
+    0% {
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+      border: 2px solid transparent;
+    }
+    100% {
+      box-shadow: none;
+      border: 2px solid #0f0;
+    }
   }
   
   .h1About, .textAbout {

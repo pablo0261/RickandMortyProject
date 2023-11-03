@@ -7,7 +7,6 @@
     "start": "nodemon ./src/index.js",
     "test": "jest --detectOpenHandles"
   },
-  
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,6 +19,8 @@
     "@babel/preset-env": "^7.23.2"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

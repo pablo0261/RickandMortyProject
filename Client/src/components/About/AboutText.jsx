@@ -52,6 +52,8 @@ const AboutText = () => {
       >
         Contact Me!
       </a>
+      <br/>
+      <br/>
     </div>
   );
 };
