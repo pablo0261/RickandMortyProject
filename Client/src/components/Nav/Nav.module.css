@@ -136,7 +136,7 @@
     display: none;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 460px) {
   .menuIcon {
     position: relative;
     justify-content: center;
@@ -160,10 +160,12 @@
 }
 
 .mobileLink {
+  display: flex;
+  align-items: center;
   text-align: center;
   text-decoration: none;
   padding: 5px 25px;
-  height: 20px;
+  height: 10px;
   margin: 20px;
   background-color: rgb(103, 207, 90);
   color: #050000;
@@ -180,4 +182,22 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   border: groove;
   border-color: rgb(77, 167, 65);
+}
+@media screen and (max-width: 460px) {
+  .mobileMenu {
+    flex-direction:column;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    align-items: start;
+    justify-content: center;
+  }
+  
+  .mobileLink {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    height: 10px;
+    margin: 3px;
+    
+  }
 }
