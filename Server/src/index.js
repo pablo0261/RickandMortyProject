@@ -1,5 +1,6 @@
 const { server } = require("./app");
 const { conn } = require("./DB_connection");
+require('dotenv')
 //import server from "./app";
 
 conn
