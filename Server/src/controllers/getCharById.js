@@ -21,7 +21,7 @@ const getCharById = async (req, res) => {
         };
         return res.status(200).json(character);
       } else {
-        return res.status(404).json({ message: "Not found" });//! revisar esto aqui no tiene sentido si es un error 404
+        return res.status(404).json({ message: "Not found" });
       }
     } else {
       return res.status(500).json({ message: "Internal Server Error" });

@@ -1,17 +1,15 @@
-const { server } = require("./app");
-const { conn } = require("./DB_connection");
-require('dotenv')
-//import server from "./app";
+  const { server } = require("./app");
+  const  {conn}  = require("./DB_connection")
+  
+  const PORT = 3001;
+  conn
+    .sync({ alter: false })
+    .then(() => {
 
-conn
-  .sync({ force: false })
-  .then(() => {
-    const PORT = 3001;
-
-    server.listen(PORT, () => {
-      console.log("Server raised in port: " + PORT); // puede ser tambien ${PORT}
+      server.listen(PORT, () => {
+        console.log("Server raised in port: " + PORT); 
+      });
+    })
+    .catch((error) => { 
+      console.error("Error syncing with database: ", error);
     });
-  })
-  .catch((error) => {
-    console.error("Error syncing with database: ", error);
-  });
