@@ -13,8 +13,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
     type // ojo si no hago destructoring arriba aqui va =action.type
   ) {
     case ADD_FAV:
-      return { ...state, myFavorites: payload, allCharacters: payload };//! esto esta bien? debería actualizar el estado de allcharacters?
-
+      // return { ...state, myFavorites: payload, allCharacters: payload };//! esto esta bien? debería actualizar el estado de allcharacters?
+      return { ...state, myFavorites: payload } // igual que el de arriba pero borrando la actualizacion de allcharacters
     case REMOVE_FAV:
       return { ...state, myFavorites: payload };
       

@@ -4,39 +4,33 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/actions";
 import { useSelector, useDispatch } from "react-redux";
+// import { connect } from "../../../../Server/src/routes";
+
+
 
 const Card = (props) => {
   const { id, name, status, species, gender, origin, image, onClose } = props; 
   const myFavorites = useSelector((state) => state.myFavorites);//*El componente esta subscripto al estado global
   const dispatch = useDispatch();
-
+  
+  
   const addFavorites = (character) => {
     dispatch(addFav(character));
   };
-
+  
   const removeFavorites = (id) => {
     dispatch(removeFav(id));
   };
-
+  
   const [isFav, setIsFav] = useState(false);
-
+  
   const handleFavorite = () => {
     isFav ? removeFavorites(id) : addFavorites(props);
     setIsFav(!isFav);
-
-    //* Este codigo hace lo mismo que el de abajo
-    // if (isFav) {
-    //   removeFav(id);
-    //   setIsFav(false);
-    // }
-    // if (!isFav) {
-    //   addFav(props);
-    //   setIsFav(true);
-    // }
   };
-
+  
   useEffect(() => {//*Mantiene actualizada la situacion de favorito de las cartas que se muestran en funcion de los cambios en el estado global.
-    myFavorites.forEach((fav) => {
+    myFavorites.allFavorites?.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);
       }

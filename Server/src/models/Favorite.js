@@ -1,11 +1,11 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-   const Favorite = sequelize.define('Favorite', {
-      id:{
+   sequelize.define('Favorite', {
+      id: {
          type: DataTypes.INTEGER,
          allowNull: false,
-         primaryKey: true,
+         primaryKey: true
       },
       name:{
          type: DataTypes.STRING,
@@ -24,9 +24,7 @@ module.exports = (sequelize) => {
          type: DataTypes.STRING,
       },
       image:{
-         type: DataTypes.BLOB,
+         type: DataTypes.STRING,
       }
    }, { timestamps: false });
-
-   return Favorite;
 };

@@ -19,14 +19,14 @@ function App() {
 
   function login(userData) {
     const { email, password } = userData;
-    const URL = "http://localhost:5173/rickandmorty/login";
-    
+    const URL = "http://localhost:3001/rickandmorty/login";
+
     axios
     .get(`${URL}?email=${email}&password=${password}`) 
     .then(({ data }) => {
-      //const { access } = data;
-      setAccess(data); 
-      if (data) {
+      const { access } = data;
+      setAccess(access); 
+      if (access) {
         navigate("/home");
       }
     })
@@ -49,7 +49,7 @@ function App() {
     }
     try {
       const response = await axios(
-        `http://localhost:5173/rickandmorty/character/${id}`
+        `http://localhost:3001/rickandmorty/character/${id}`
       );
       const data = response.data;
       if (data.name) {

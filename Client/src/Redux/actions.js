@@ -13,7 +13,7 @@ const addFav = (character) => {
       const response = await axios.post(endpoint, character);
       const data = response.data;
       dispatch({
-        type: "ADD_FAV", //*cambiar por ADD_FAV
+        type: ADD_FAV, 
         payload: data,
       });
     } catch (error) {
@@ -29,7 +29,7 @@ const removeFav = (id) => {
       const response = await axios.delete(endpoint);
       const data = response.data;
       return dispatch({
-        type: "REMOVE_FAV",
+        type: REMOVE_FAV,
         payload: data,
       });
     } catch (error) {

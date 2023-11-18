@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import Card from "../Card/Card";
 import styles from "../Favorites/Favorites.module.css";
 import { filterCards, orderCards } from "../../Redux/actions";
-import { useDispatch } from "react-redux";
 
 const Favorites = (props) => {
   const { myFavorites } = props;
   const dispatch = useDispatch();
-  const [aux, setAux] = useState(true); 
+  const [aux, setAux] = useState(false); 
 
   const handleOrder = () => {
     dispatch(orderCards(aux? "D" : "A"));
@@ -35,7 +34,8 @@ const Favorites = (props) => {
           <option value="unknown">unknown</option>
         </select>
         <div className={styles.divFavoritesCars}>
-          {myFavorites.map((char) => {
+          {myFavorites &&
+          myFavorites.allFavorites?.map((char) => {
             return (
               <Card
                 key={char.id}
@@ -46,7 +46,6 @@ const Favorites = (props) => {
                 gender={char.gender}
                 origin={char.origin } 
                 image={char.image}
-                onClose={() => {}} //! quitar la propiedad si no la voy a utilizar
               />
             );
           })}
@@ -56,7 +55,7 @@ const Favorites = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {//! reemplazar por useSelector
+const mapStateToProps = (state) => {
   return {
     myFavorites: state.myFavorites,
   };
