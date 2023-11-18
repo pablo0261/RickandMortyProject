@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   myFavorites: [],
   allCharacters: [],
-}; 
+};
 
 const rootReducer = (state = initialState, { type, payload }) => {
   //en lugar de action hago destructoring y pongo los parametros que me interesan type y payload
@@ -13,20 +13,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
     type // ojo si no hago destructoring arriba aqui va =action.type
   ) {
     case ADD_FAV:
-      // return { ...state, myFavorites: payload, allCharacters: payload };//! esto esta bien? debería actualizar el estado de allcharacters?
-      return { ...state, myFavorites: payload } // igual que el de arriba pero borrando la actualizacion de allcharacters
+      return { ...state, myFavorites: payload, allCharacters: payload };
+
     case REMOVE_FAV:
       return { ...state, myFavorites: payload };
-      
+
     case FILTER:
-      let copy3;
-      if (payload === "All") {
-        copy3 = state.allCharacters;
-      } else {
-        copy3 = state.allCharacters.filter((char) => {
-          return char.gender === payload;
-        });
-      }
+      let copy3 = state.allCharacters.filter((char) => char.gender === payload);
       return {
         ...state,
         myFavorites: copy3,
@@ -49,7 +42,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     default:
-      return state ;
+      return state;
   }
 };
 

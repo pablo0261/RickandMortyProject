@@ -7,15 +7,15 @@ import axios from "axios";
 
 //*EJEMPLO CON ASYNC AWAIT
 const addFav = (character) => {
+  const endpoint = "http://localhost:3001/rickandmorty/fav";
   return async (dispatch) => {
     try {
-      const endpoint = "http://localhost:3001/rickandmorty/fav";
-      const response = await axios.post(endpoint, character);
-      const data = response.data;
-      dispatch({
+      const {data} = await axios.post(endpoint, character);
+      return dispatch({
         type: ADD_FAV, 
         payload: data,
       });
+      //console.log(data)
     } catch (error) {
       console.error("Error al agregar a favoritos:", error);
     }
@@ -23,11 +23,10 @@ const addFav = (character) => {
 };
 
 const removeFav = (id) => {
+  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
   return async (dispatch) => {
     try {
-      const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
-      const response = await axios.delete(endpoint);
-      const data = response.data;
+      const {data} = await axios.delete(endpoint);
       return dispatch({
         type: REMOVE_FAV,
         payload: data,
@@ -51,12 +50,12 @@ const removeFav = (id) => {
 //   };
 // };
 
-const removeFavorite = (id) => {
-  return {
-    type: REMOVE_FAVORITE,
-    payload: id,
-  };
-};
+// const removeFavorite = (id) => {
+//   return {
+//     type: REMOVE_FAVORITE,
+//     payload: id,
+//   };
+// };
 
 const filterCards = (gender) => {
   return {
@@ -72,4 +71,4 @@ const orderCards = (orden) => {
   };
 };
 
-export { addFav, removeFav, removeFavorite, filterCards, orderCards };
+export { addFav, removeFav, filterCards, orderCards };
