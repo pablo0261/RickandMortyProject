@@ -21,7 +21,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, myFavorites: payload };
 
     case FILTER:
+      if(payload === 'All') return { ...state, myFavorites:state.allCharacters}
       let copy3 = state.allCharacters.filter((char) => char.gender === payload);
+
       return {
         ...state,
         myFavorites: copy3,
