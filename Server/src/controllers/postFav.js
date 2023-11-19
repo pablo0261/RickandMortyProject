@@ -13,12 +13,14 @@ const postFav = async (req, res) => {
     await Favorite.findOrCreate({
         where: {id, name, origin, status, image, species, gender },
       });
+
       const allFavorites = await Favorite.findAll();
-      // console.log(allFavorites)
-      res.status(200).json({ allFavorites });
+      //console.log('favorito encontrado')
+      res.status(200).json( allFavorites );
     
   } catch (error) {
     console.error("Error al procesar la solicitud:", error);
+    console.error(error.stack);
     res.status(500).json({ error:error.message });
   }
 };

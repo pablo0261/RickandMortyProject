@@ -9,6 +9,8 @@ const Favorites = (props) => {
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false); 
 
+  console.log(myFavorites)
+
   const handleOrder = () => {
     dispatch(orderCards(aux? "D" : "A"));
     setAux(!aux); 
@@ -34,8 +36,7 @@ const Favorites = (props) => {
           <option value="unknown">unknown</option>
         </select>
         <div className={styles.divFavoritesCars}>
-          {myFavorites &&
-          myFavorites.allFavorites?.map((char) => {
+          {myFavorites.map((char) => {
             return (
               <Card
                 key={char.id}
@@ -44,7 +45,7 @@ const Favorites = (props) => {
                 status={char.status}
                 species={char.species}
                 gender={char.gender}
-                origin={char.origin } 
+                origin={char.origin} 
                 image={char.image}
               />
             );

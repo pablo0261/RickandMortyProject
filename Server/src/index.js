@@ -10,6 +10,9 @@ const PORT = 3001;
         console.log("Server raised in port: " + PORT); 
       });
     })
-    .catch((error) => { 
-      console.error("Error syncing with database: ", error);
+    .catch((dbSyncError) => {
+      console.error("Error syncing with database: ", dbSyncError);
+    })
+    .catch((serverError) => {
+      console.error("Error starting the server: ", serverError);
     });

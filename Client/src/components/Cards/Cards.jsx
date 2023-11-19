@@ -18,7 +18,7 @@ const Cards = (props) => {
           origin={char.origin}
           image={char.image}
           onClose={onClose}
-          isFavorite={char.isFavorite}
+          // isFavorite={char.isFavorite}
         />
       ))}
     </div>

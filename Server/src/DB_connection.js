@@ -1,6 +1,5 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const {DataTypes} = require('sequelize');
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 const FavoriteModel = require('./models/Favorite')
 const UserModel = require('./models/User')

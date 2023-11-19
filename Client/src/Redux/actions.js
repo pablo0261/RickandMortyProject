@@ -11,11 +11,11 @@ const addFav = (character) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.post(endpoint, character);
+      console.log(data)
       return dispatch({
         type: ADD_FAV, 
         payload: data,
       });
-      //console.log(data)
     } catch (error) {
       console.error("Error al agregar a favoritos:", error);
     }

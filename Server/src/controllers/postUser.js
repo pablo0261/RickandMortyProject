@@ -2,7 +2,6 @@ const {User} = require("../DB_connection");
 
 const postUser = async(req, res) => {
   try {
-    console.log('Entró en postUser'); 
     const { email, password } = req.body;
 
     if (!email || !password){

@@ -30,7 +30,7 @@ const Card = (props) => {
   };
   
   useEffect(() => {//*Mantiene actualizada la situacion de favorito de las cartas que se muestran en funcion de los cambios en el estado global.
-    myFavorites.allFavorites?.forEach((fav) => {
+    myFavorites.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);
       }

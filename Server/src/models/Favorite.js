@@ -12,13 +12,14 @@ module.exports = (sequelize) => {
          allowNull: false,
       },
       status:{
-         type: DataTypes.ENUM('Dead', 'Alive', 'Undefined')
+         type: DataTypes.ENUM('Dead', 'Alive', 'unknown')
       },
       species:{
          type: DataTypes.STRING,
       },
       gender:{
-         type: DataTypes.ENUM('Female', 'Male', 'Genderless', 'Unknown')
+         type: DataTypes.ENUM('Female', 'Male', 'Genderless', 'unknown'),
+         allowNull:false
       },
       origin:{
          type: DataTypes.STRING,
